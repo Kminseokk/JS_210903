@@ -7,8 +7,10 @@
     <script type="text/javascript">
       $(document).ready(function(){
           $('button').on('click', function () {
-                var price = $('<p>From $399.99</p>');
-                $(this).closest('.vacation').append(price);
+                var vacation =  $(this).closest('.vacation')
+                var amount = vacation.data('price');
+                var price = $('<p>From $'+amount+'</p>');
+                vacation.append(price);
                 $(this).remove();
             });
       });
@@ -21,7 +23,7 @@
       <h3>jQuery Travels</h3>
       <div id="vacations">
         <ul>
-          <li class='vacation'>
+          <li class='vacation' data-price="111.11">
             <h2>Hawaiian Vacation</h2>
             <p>Comments on this deal:</p>
             <ul class="comments">
@@ -32,7 +34,7 @@
           </li>
         </ul>
         <ul>
-            <li class='vacation'>
+            <li class='vacation Olando' data-price='222.22'>
               <h2>Olando</h2>
               <p>Comments on this deal:</p>
               <ul class="comments">
@@ -44,7 +46,7 @@
             </li>
           </ul>
           <ul>
-            <li class='vacation'>
+            <li class='vacation' data-price="333.33">
               <h2>Visit Japan</h2>
               <p>Comments on this deal:</p>
               <ul class="comments">
